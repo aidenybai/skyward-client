@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link href="https://cdn.glitch.com/3c55e33c-9254-4168-974f-40e6a9bafff4%2F47e31e89-cccf-4b28-9719-d4e2911bd226.image.png?v=1581373207532" rel="shortcut icon" type="image/png">
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/72d227a617.js" crossorigin="anonymous"></script>
+    <meta name="theme-color" content="#ffffff" />
+    <title>Skyward Client</title>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <br>
+      <div class="card" v-if="loggedIn === false">
+        <div class="card-body">
+          <h5 class="card-title">Sign in to Skyward</h5>
+          <p class="card-text">
+            <div class="form-group mb-3">
+              <label for="username">Your Username</label>
+              <input id="username" type="text" class="form-control" placeholder="Username" aria-label="Username" required>
+            </div>  
+            <div class="form-group mb-3">
+              <label for="password">Your Password</label>
+              <input id="password" type="password" class="form-control" placeholder="Password" aria-label="Password" required>
+            </div>   
+            <div class="form-group mb-3">
+              <label for="skyward">District Skyward Link</label>
+              <input id="skyward" type="text" class="form-control" placeholder="Skyward Link (optional)" aria-label="Skyward">
+            </div>            
+          </p>
+          <div class="text-right">
+            <button @click="login" class="btn btn-primary" id="submit">Sign in</button>
+            <button @click="forgot" class="btn btn-link">Forgot Password?</button>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="card" v-if="loggedIn === true">
+        <div class="card-body">
+          <h5 class="card-title">Account Loccker</h5>
+          <p class="card-text">
+            <div class="form-group mb-3">
+              <label for="username">Victim Username</label>
+              <input id="victim" type="text" class="form-control" placeholder="Victim Username" aria-label="Victim Username" required>
+            </div>  
+            <div class="form-group mb-3">
+              <label for="requests">Number of Requests</label>
+              <input id="requests" type="number" class="form-control" placeholder="Requests (default: 30)" aria-label="Requests" required>
+            </div>   
+            <div class="form-group mb-3">
+              <label for="district">District Skyward Link</label>
+              <input id="district" type="text" class="form-control" placeholder="Skyward Link (optional)" aria-label="Skyward">
+            </div>            
+          </p>
+          <div class="text-right">
+            <button @click="lock" class="btn btn-warning">Lock Account</button>
+            <button @click="logout" class="btn btn-danger">Sign out</button>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="card" v-if="loggedIn === true">
+        <div class="card-body">
+          <h5 class="card-title">Skyward Client</h5>
+          <p class="card-text">
+            <template>
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th scope="col">Course</th>
+                    <th scope="col">Scores</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="data in tableRows">
+                    <th scope="row">{{ data.course }}</th>
+                    <td>{{ data.scores }}</td>
+                  </tr>
+                </tbody>
+              </table> 
+            </template>         
+          </p>
+          <div class="text-right">
+            <button @click="logout" class="btn btn-danger">Sign out</button>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/skywarder.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
